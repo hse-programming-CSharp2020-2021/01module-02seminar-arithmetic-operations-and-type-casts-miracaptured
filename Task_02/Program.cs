@@ -25,20 +25,25 @@ namespace Task_02 {
 		static void Main(string[] args) {
 			int p;
 			// TODO : Реализовать ввод целочисленного значения.
-			p =;
+			if (int.TryParse(Console.ReadLine(), out p) && p > 99 && p < 1000)
+			{
+				Console.WriteLine(MaxPermutation(p));
+			}
 
-			// TODO : Посчиать и вывести результат.
 		}
 
 		static int MaxPermutation(int x) {
 			// TODO : Получить цифры числа используя арифметические операции.
-			int firstDigit = ,
-				secondDigit = ,
-				thirdDigit = ;
-
+			int firstDigit = x/100,
+				secondDigit = x%100/10,
+				thirdDigit = x%10;
+			int a = Math.Max(Math.Max(firstDigit, secondDigit), thirdDigit);
+			int c = Math.Min(Math.Min(firstDigit, secondDigit), thirdDigit);
+			int b = firstDigit + secondDigit + thirdDigit - a - c;
 			// TODO : Собрать новое число и вернуть его. 
-			int max =
+			int max = a * 100 + b * 10 + c;
 			return max;
+			
 		}
 	}
 }
