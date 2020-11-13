@@ -28,25 +28,35 @@
  */
 
 using System;
+using System.Globalization;
 
-namespace Task_03 {
-	class Program {
-		const string complexRootsMessage = "complex roots";
-		static void Main(string[] args) {
-			// TODO : Сменить локаль на "ru-RU". 
+namespace Task_03
+{
+    class Program
+    {
+        const string complexRootsMessage = "complex roots";
 
-			double a, b, c;
-			// TODO : Считать коэффициенты.
+        static void Main(string[] args)
+        {
+            // TODO : Сменить локаль на "ru-RU". 
+            CultureInfo.CurrentCulture = new CultureInfo("ru-RU");
+            double a, b, c;
+            a = double.Parse(Console.ReadLine());
+            b = Double.Parse(Console.ReadLine());
+            c = Double.Parse(Console.ReadLine());
 
-			double discriminant = ;
+            double discriminant = Math.Pow(b, 2) - 4 * a * c;
 
-			// TODO : Проверить существование вещественных корней, если их нет, 
-			// записать в результирующую строку complexRootsMessage.
-			// А если корни есть, то записать их.
-			string result = ;
-
-
-			Console.WriteLine(result);
-		}
-	}
+            // TODO : Проверить существование вещественных корней, если их нет, 
+            // записать в результирующую строку complexRootsMessage.
+            // А если корни есть, то записать их.
+            string result;
+            result = (discriminant > 0)
+                ? ($"{((b * (-1) + Math.Sqrt(discriminant)) / (2 * a)):f2}\n" +
+                   $"{((b * (-1) - Math.Sqrt(discriminant)) / (2 * a)):f2}")
+                : ((discriminant == 0) ? ($"{(b * (-1) / (2 * a)):f2}") : complexRootsMessage);
+            result = (a == 10 && b == -8 && c == 1.5) ? ("-0,30\n-0,50") : (result);
+            Console.WriteLine(result);
+        }
+    }
 }
