@@ -19,7 +19,6 @@
  */
 
 using System;
-using System.Linq;
 
 namespace Task_4 {
 	class Program {
@@ -28,10 +27,9 @@ namespace Task_4 {
 			// TODO : Считать целочисленное значение.
 			// TODO : Вычислить значение и вывести.
 
-			if (int.TryParse(Console.ReadLine(), out x) && x > 999 && x < 10000)
-			{
-				Console.WriteLine(ReverseNumber(x));
-			}
+			int.TryParse(Console.ReadLine(), out x);
+			Console.WriteLine(ReverseNumber(x));
+			
 		}
 
 		static string ReverseNumber(int x) {
